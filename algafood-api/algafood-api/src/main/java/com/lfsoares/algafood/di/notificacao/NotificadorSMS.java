@@ -1,8 +1,10 @@
 package com.lfsoares.algafood.di.notificacao;
 
 import com.lfsoares.algafood.di.modelo.Cliente;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+@Qualifier("normal")
 @Component
 public class NotificadorSMS implements Notificador{
 
