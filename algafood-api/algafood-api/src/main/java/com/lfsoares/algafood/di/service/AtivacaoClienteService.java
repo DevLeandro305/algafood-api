@@ -1,15 +1,17 @@
 package com.lfsoares.algafood.di.service;
 
 import com.lfsoares.algafood.di.modelo.Cliente;
-import com.lfsoares.algafood.di.notificacao.NotificadorEmail;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import com.lfsoares.algafood.di.notificacao.Notificador;
 
-@Component
 public class AtivacaoClienteService {
 
-    @Autowired
-    private NotificadorEmail notificador;
+    private Notificador notificador;
+
+    public AtivacaoClienteService(Notificador notificador) {
+        this.notificador = notificador;
+
+        System.out.println("AtivacaoClienteService: " + notificador);
+    }
 
     public void ativar(Cliente cliente) {
         cliente.ativar();
