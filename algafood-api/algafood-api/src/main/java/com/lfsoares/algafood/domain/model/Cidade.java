@@ -4,13 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.math.BigDecimal;
-
 @Entity
-@Table(name = "tb_restaurante")
+@Table(name = "tb_cidade")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Restaurante {
+public class Cidade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +18,7 @@ public class Restaurante {
     @Column(nullable = false)
     private String nome;
 
-    @Column(name = "taxa_frete", nullable = false)
-    private BigDecimal taxaFrete;
-
     @ManyToOne
-    @JoinColumn (name = "cozinha_id", nullable = false)   //Somente em caso de alguma propriedade extra, como por exemplo mudar o nome
-    private Cozinha cozinha;
+    @JoinColumn(nullable = false)
+    private Estado estado;
 }
