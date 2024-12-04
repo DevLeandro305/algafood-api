@@ -19,7 +19,6 @@ public class CozinhaController {
     @Autowired
     private CozinhaRepository cozinhaRepository;
 
-    @ResponseStatus(HttpStatus.OK)
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Cozinha> listar() {
         return cozinhaRepository.listar();
@@ -32,17 +31,13 @@ public class CozinhaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Cozinha> buscar(@PathVariable Long id) {
-        Cozinha cozinha =  cozinhaRepository.buscar(id);
+        Cozinha cozinha = cozinhaRepository.buscar(id);
 
-      //return ResponseEntity.status(HttpStatus.OK).body(cozinha);
-      //return ResponseEntity.ok(cozinha);
+        if (cozinha != null) {
+            return ResponseEntity.ok(cozinha);
+        }
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.LOCATION, "http://localhost:8080/cozinhas");
+        return ResponseEntity.notFound().build();
 
-        return ResponseEntity
-                .status(HttpStatus.FOUND)
-                .headers(headers)
-                .build();
     }
 }
