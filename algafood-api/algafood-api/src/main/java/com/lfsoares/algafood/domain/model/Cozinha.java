@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-//@JsonRootName("gastronomia")
 @Entity
 @Table(name = "tb_cozinha")
 @Data
@@ -16,8 +15,6 @@ public class Cozinha {
     @EqualsAndHashCode.Include
     private Long id;
 
-//  @JsonIgnore     -> Serve para ignorar um campo na hora de montar a representação na requisição
-//  @JsonProperty("titulo")
     @Column(nullable = false)
     private String nome;
 }
