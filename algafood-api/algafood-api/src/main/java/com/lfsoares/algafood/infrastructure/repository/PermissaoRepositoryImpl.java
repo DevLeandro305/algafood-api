@@ -4,10 +4,12 @@ import com.lfsoares.algafood.domain.model.Permissao;
 import com.lfsoares.algafood.domain.repository.PermissaoRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Repository
 public class PermissaoRepositoryImpl implements PermissaoRepository {
 
     @PersistenceContext
