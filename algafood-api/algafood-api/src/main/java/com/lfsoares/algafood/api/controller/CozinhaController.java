@@ -27,6 +27,7 @@ public class CozinhaController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Cozinha> listar() {
+
         return cozinhaRepository.findAll();
     }
 
@@ -39,6 +40,8 @@ public class CozinhaController {
         }
 
         return ResponseEntity.notFound().build();
+
+        // return cozinha.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
